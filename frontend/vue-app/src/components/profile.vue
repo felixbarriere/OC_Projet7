@@ -1,0 +1,68 @@
+<template>
+<!DOCTYPE>
+<section id="section_new_post">
+    <form >
+        <h1>Mon profil</h1>
+            <label>Username</label>
+            <p id="post_id_user" > {{user.username}} </p>
+
+            <label>Email</label>
+            <p id="post_id_user" > {{user.email}} </p>
+
+            <label>Etes-vous administrateur?</label>
+            <p id="post_id_user" > {{user.is_admin}} </p>
+            <!-- <router-link to='/login'> -->
+                <button @click="deleteUser()" id="delete-btn" type="submit" >Supprimer mon compte</button>
+            <!-- </router-link> -->
+
+    </form>
+</section>
+</template>
+
+<script>
+import axios from 'axios';
+
+let user = JSON.parse(localStorage.getItem('user'));
+export default {
+  name: 'Posts',
+  data() {
+    return {
+      posts: [],
+      user : user
+    }
+  },
+  methods : {
+      deleteUser() {
+          const userId = user.id;
+          console.log(user);
+          console.log(userId);
+          console .log(user.id);
+          console.log(`http://localhost:3001/api/auth/${user.id}`)
+          axios.delete(`http://localhost:3001/api/auth/${user.id}`,
+          {
+              headers: {
+              'Content-Type': 'application/json',
+            }
+          })
+        .then(localStorage.removeItem('user'))
+        .then(location.href = "/login")
+        .catch(err => console.log(err.message))   
+      }
+  }
+}
+</script>
+
+<style lang="scss">
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+// responsive
+@media screen and (max-width: 640px) {
+    section, #section_new_post {
+        margin: 0 1rem 0.5rem 1rem;
+    }
+}
+</style>

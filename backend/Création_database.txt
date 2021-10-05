@@ -1,0 +1,73 @@
+-- Base de données : `groupomania`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users` (
+  `id` SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `username` varchar(40) UNSIGNED NOT NULL,
+  `email` varchar(40) UNSIGNED NOT NULL,
+  `password` varchar(40) NOT NULL,
+  `is_admin` varchar(1),
+   PRIMARY KEY (id)
+) ENGINE=InnoDB;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `posts`
+--
+
+DROP TABLE IF EXISTS `posts`;
+CREATE TABLE `posts` (
+  `id_post` SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id_user` SMALLINT UNSIGNED NOT NULL,
+  `titre` varchar(40) NOT NULL,
+  `date` datetime NOT NULL DEFAULT current_timestamp(),
+  `texte` text NOT NULL,
+  PRIMARY KEY (id_post)	
+)
+ENGINE=InnoDB;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `comments`
+--
+
+DROP TABLE IF EXISTS `comments`;
+CREATE TABLE `comments` (
+  `id` SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id_user` SMALLINT UNSIGNED NOT NULL,
+  `texte` TEXT NOT NULL,
+  `id_post`SMALLINT UNSIGNED,
+  PRIMARY KEY (id)
+) 
+ENGINE=InnoDB;
+
+--
+-- Déchargement des données de la table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `email`, `password`, `id_admin`) VALUES
+(15, 'Admin', 'Admin', '$2b$10$QuYnDuCybMIOT6rO/ArrM.IGcpsDvhiwqj/4zsFBDLHAcpwdcXSYm', 'YWRtaW5AYWRtaW4uY29t', 1);
+
+--
+-- Index pour la table `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_userId_comments` (`id_user`),
+  ADD KEY `fk_postId_comments` (`id_post`);
+
+--
+-- Index pour la table `posts`
+--
+ALTER TABLE `posts`
+  ADD KEY `fk_userId_posts` (`id_user`);
+
