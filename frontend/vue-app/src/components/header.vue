@@ -50,12 +50,15 @@ export default {
 </script>
 
 <style lang="scss">
+
+
 header {
     max-width: 650px;
     margin: 0 auto;
-    padding: 0 15rem;
+    padding: 0 10rem;
     display: flex;
     justify-content: space-between;
+    border-bottom: 0.01px solid rgb(126, 125, 125);
 }
 
 .header_navbar_menu {

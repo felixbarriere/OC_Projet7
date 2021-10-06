@@ -17,7 +17,6 @@
 
 <script>
 import axios from 'axios';
-
 let user = JSON.parse(localStorage.getItem('user'));
 
 export default {
@@ -68,7 +67,7 @@ export default {
         axios.delete(`http://localhost:3001/api/posts/comment/${commentId}`,this.formData, {
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `${user.token}`
+                'Authorization': 'Bearer ' + user.token
             }
         })
         .then (() => {
@@ -81,15 +80,8 @@ export default {
         let user = JSON.parse(localStorage.getItem('user'));
         if (user.is_admin !== '') {
             this.admin = true;
-            console.log("administrateur");
         }
       }
-      // checkIfAuthorized () {
-      //   console.log(user.id)
-      //   if(comment.id_user == $userid.id){
-      //     this.authorized = true;
-      //   }
-      // }
   }
 }
 </script>

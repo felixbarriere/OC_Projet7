@@ -4,10 +4,10 @@
     <form >
         <h1 id="h1_new_post">Que voulez-vous dire?</h1>
             <label>Titre</label>
-            <input id="post_titre" v-model="formData.titre" required/>
+            <input id="post_titre" v-model="formData.titre" required="required"/>
 
             <label>Contenu</label>
-            <textarea id="post_texte" v-model="formData.texte" required></textarea>
+            <textarea id="post_texte" v-model="formData.texte" required="required"></textarea>
             <input type="file" @change="onFileSelected" >
             <button id="newPost-btn" type="submit" @click="createPost">Publier</button>
     </form>
@@ -42,15 +42,17 @@ export default {
         reader.readAsDataURL(this.file);
       },
       createPost(e) {
+        console.log()
+
         axios.post("http://localhost:3001/api/posts/", this.formData,  {
             headers: {
-                'Content-Type': 'application/json'
-                // 'Authorization': 'Bearer ' + localStorage.getItem('token')
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + user.token
             }
         })
         .then (() => {
         alert("votre post a bien été publié");
-        window.location.href="/";
+        // window.location.href="/";
         })
         e.preventDefault();  
     }
@@ -62,7 +64,7 @@ export default {
 #section_new_post {
     max-width: 650px;
     background-color: #183E76;
-    margin: 0 auto 1rem auto;
+    margin: 1rem auto;
     height: 100%;
     color: white;
     padding: 1.5rem;
