@@ -20,8 +20,8 @@ body {
   box-shadow: 5px 4px 11px 0px #757575;
 }
 
-p {
-  margin: 1em;
+p, h2 {
+  margin: 0;
 }
 
 #nav {

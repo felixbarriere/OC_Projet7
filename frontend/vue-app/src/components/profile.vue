@@ -60,7 +60,7 @@ form {
 }
 
 // responsive
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 730px) {
     section, #section_new_post {
         margin: 0 1rem 0.5rem 1rem;
     }

@@ -4,10 +4,10 @@
     <h1></h1>
     <div id="one-post-global" >
           <h2 id="one-post-global-title" >{{ this.post.titre }}</h2>
-          <div id="one-post-global-text" >
-              <p >{{ this.post.texte}}</p>
-              <p id="one-post-global-text-username"> {{ this.post.username }} </p>
-          </div>
+          <div id="one-post-global-text" >{{ this.post.texte}}</div> 
+          <img v-if="post.media != null" :src="post.media" alt="image" id="post-global-img"/>
+          <p id="one-post-global-text-username"> {{ this.post.username }} </p>
+          
           <button v-if="admin || this.post.id_user == user.id" @click="deleteOnePost()" id="btn_new_post" class="btn_delete" type="submit"> Supprimer </button> 
           <!-- //v-if="is_admin" -->
     </div>
@@ -30,7 +30,6 @@ export default {
   created() {
     this.checkIfadmin ();
     this.getOnePost();
-    // this.deleteOnePost();
   }, 
   methods: {
       getOnePost (){  
@@ -73,12 +72,21 @@ export default {
 </script>
 
 <style lang="scss">
-#post-global { 
+#one-post-global { 
   background-color: #183E76;
   color: white;
 
   &-title { 
     text-decoration: underline;
+    margin-bottom: 0.5rem;
+  }
+
+  &-text { 
+    margin-bottom: 0.5rem;
+
+    &-username { 
+      margin: 0.2rem;
+    }
   }
 
   &-comment {

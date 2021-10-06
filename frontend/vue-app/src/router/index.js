@@ -5,8 +5,6 @@ import Login from '../views/Login.vue'
 import Signup from '../views/Signup.vue'
 import OnePost from '../views/OnePost.vue'
 import Profile from '../views/Profile.vue'
-import NewMedia from '../views/NewMedia.vue'
-
 
 const routes = [
   {
@@ -39,11 +37,6 @@ const routes = [
     path: '/profile/',
     name: 'Profile',
     component: Profile
-  },
-  {
-    path: '/newmedia/',
-    name: 'NewMedia',
-    component: NewMedia
   }
 ]
 

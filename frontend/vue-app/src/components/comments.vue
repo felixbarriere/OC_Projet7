@@ -10,8 +10,6 @@
             <div id="container_comments_text_btn">
               <p id="container_comments_text"> {{comment.texte}} </p>
               <button  v-if="admin || comment.id_user == user.id" id="container_comments_btn" @click="deleteComment(comment.id)">Supprimer</button>
-              <!-- v-if="comment.id_user == $userid.id" -->
-              <!-- v-if="comment.id_user == user.id" -->
             </div>
         </div>
     </section>
@@ -19,7 +17,6 @@
 
 <script>
 import axios from 'axios';
-// import Vue from 'vue';
 
 let user = JSON.parse(localStorage.getItem('user'));
 
@@ -39,7 +36,6 @@ export default {
   created() {
     this.getAllComments();
     this.checkIfadmin ();
-    // this.checkIfAuthorized();
   }, 
   methods: {
       sendComment(e) {

@@ -8,6 +8,7 @@
 
             <label>Contenu</label>
             <textarea id="post_texte" v-model="formData.texte" required></textarea>
+            <input type="file" @change="onFileSelected" >
             <button id="newPost-btn" type="submit" @click="createPost">Publier</button>
     </form>
 </section>
@@ -31,20 +32,26 @@ export default {
       }
   },
   methods: {
+      onFileSelected(event) {
+        this.file = event.target.files[0];
+        var reader = new FileReader();
+        reader.onloadend = () => {
+            // console.log('RESULT', reader.result)
+            this.formData.media = reader.result;
+        }
+        reader.readAsDataURL(this.file);
+      },
       createPost(e) {
-
         axios.post("http://localhost:3001/api/posts/", this.formData,  {
             headers: {
                 'Content-Type': 'application/json'
                 // 'Authorization': 'Bearer ' + localStorage.getItem('token')
             }
         })
-        .then ((res) => {
-        console.log(res);
+        .then (() => {
         alert("votre post a bien été publié");
         window.location.href="/";
         })
-        console.warn(this.formData);
         e.preventDefault();  
     }
   }

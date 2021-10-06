@@ -3,13 +3,13 @@
   <section>
     <h1 id="h1_post">Bienvenue {{user}} !</h1>
     <div id="post-global" v-for="post in posts.slice().reverse() || []" :key="post.id_post">
-      <router-link :to="{ name:'OnePost', params: {id: post.id_post }}">
+      
           
           <h2 id="post-global-title">{{ post.titre}}</h2>
-          <div id="post-global-text">
-              <p>{{ post.texte}}</p>
-              <p>{{ post.media}}</p>
-          </div>
+          <p id="post-global-text"> {{ post.texte}} </p>
+          <img v-if="post.media != undefined" :src="post.media" alt="image" id="post-global-img"/>
+      <router-link :to="{ name:'OnePost', params: {id: post.id_post }}">
+          <button id="post-global-btn">Voir plus</button>
       </router-link>
     </div>
   </section>
@@ -41,26 +41,25 @@ export default {
   background-color: #183E76;
   color: white;
   border-radius: 15px;
-  padding: 0.1rem;
+  
   margin: 0.5rem 0;
 
   &-title { 
     text-decoration: underline;
+    padding: 1rem;
   }
 
-  &-comment {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+  &-text { 
     padding: 1rem;
+  }
 
-    &-answer { 
+  &-img { 
     width: 100%;
-    }
-    &-button, &-answer {  
-      margin: 0.5rem 0;
-    }
-  } 
+  }
+
+  &-btn {  
+        margin: 1rem;
+  }
 }
 
 #h1_post { 
