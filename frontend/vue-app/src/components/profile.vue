@@ -36,7 +36,7 @@ export default {
           const userId = user.id;
           console.log(user);
           console.log(userId);
-          console .log(user.id);
+          console.log(user.id);
           console.log(`http://localhost:3001/api/auth/${user.id}`)
           axios.delete(`http://localhost:3001/api/auth/${user.id}`,
           {

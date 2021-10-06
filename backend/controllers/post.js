@@ -25,10 +25,8 @@ exports.newPost = (req, res, next) => {
     else {
         imageUrl = req.body.media;
     }
-        // ${req.body.media}
-    console.log(req.body);
-    // console.log(req.file);
-    // console.log(req.file.filename);
+    console.log(imageUrl);
+    console.log(req.file);
     
     db.query(`INSERT INTO posts VALUES (NULL, '${req.body.id_user}', '${req.body.titre}', '${req.body.texte}', 
       '${imageUrl}')`, (error, result, field) => {

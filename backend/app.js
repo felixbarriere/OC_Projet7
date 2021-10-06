@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');         
 const helmet = require('helmet');    
 const rateLimit = require("./middleware/rate-limit");  
+const formidableMiddleware = require('express-formidable');
 const postRoutes = require('./routes/post');
 const userRoutes = require('./routes/user');
 require('dotenv').config();
@@ -24,6 +25,11 @@ app.use(express.json());
 app.use(helmet());  // utilisation du module 'helmet' pour la sécurité en protégeant l'application des failles XSS ciblant les cookies
 app.use(rateLimit); //limitation du nombre de requetes 
 app.use('/images', express.static(path.join(__dirname, 'images'))); // Middleware permettant de charger les fichiers qui sont dans le repertoire images
+app.use(formidableMiddleware()); //permet de gérer les uploads de fichier (multipart/formdata)
+app.post('/images', (req, res) => {
+  req.fields; // contains non-file fields
+  req.files; // contains files
+});
 
 app.use('/api/posts', postRoutes);
 app.use('/api/auth', userRoutes);

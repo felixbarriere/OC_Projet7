@@ -15,6 +15,9 @@
                 <router-link to='/newpost'>
                     <a class="header_navbar_menu">Publier</a>
                 </router-link>
+                <router-link to='/newmedia'>
+                    <a class="header_navbar_menu">Média</a>
+                </router-link>
                 <router-link to='/profile'>
                     <a class="header_navbar_menu">Profil</a>
                 </router-link>
