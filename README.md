@@ -7,6 +7,7 @@ VueJs
 NodeJs + Express
 Mysql
 
+Frontend: 
 Ouvrir le dossier Frontend dans le terminal de votre éditeur puis exécuter la commande:
 
 npm install
@@ -17,7 +18,7 @@ si le navigateur ne s'ouvre pas automatiquement allez à :
 
 http://localhost:8080/
 
-Backend
+Backend:
 Ouvrir le dossier Backend dans le terminal de votre éditeur puis exécuter la commande:
 
 npm install
@@ -35,7 +36,7 @@ Retrouver le guide pour les requêtes à l'Api sur Postman :
 
 https://documenter.getpostman.com/view/12325951/TVYDeeqz
 
-Utilisation
+Utilisation: 
 Pour s'inscrire sur le social network de Groupomania, il vous faut renseigner :
 
 Un pseudo (entre 3 et 20 caractères)
