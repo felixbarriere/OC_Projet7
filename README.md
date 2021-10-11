@@ -34,6 +34,7 @@ Guidelines API
 Retrouver le guide pour les requêtes à l'Api sur Postman :
 
 https://documenter.getpostman.com/view/12325951/TVYDeeqz
+
 Utilisation
 Pour s'inscrire sur le social network de Groupomania, il vous faut renseigner :
 
