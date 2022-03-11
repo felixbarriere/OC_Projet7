@@ -14,9 +14,8 @@ Ouvrir le dossier Frontend dans le terminal de votre éditeur puis exécuter la 
 > npm install
 
 puis
-> cd vue-app
-> npm run serve
-> 
+> cd vue-app && npm run serve
+ 
 si le navigateur ne s'ouvre pas automatiquement allez à :
 
 http://localhost:8081/
