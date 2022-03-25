@@ -36,7 +36,7 @@ Se connecter au serveur MySql de votre choix. Exécuter la commande: CREATE DATA
 Il faut remplacer socialnetwork.sql par le chemin du fichier dans votre machine. Vous pouvez lancer le projet sans importer le fichier.sql, au lancement de l'application un compte administrateur est automatiquement créé (les identifiants vous on été fourni dans un fichier Id_Admin).
 
 ## Guidelines API
-Retrouver le [guide](https://documenter.getpostman.com/view/12325951/TVYDeeqz) pour les requêtes à l'Api sur Postman :
+Retrouvez le [guide](https://documenter.getpostman.com/view/12325951/TVYDeeqz) pour les requêtes à l'Api sur Postman.
 
 ## Utilisation: 
 Pour s'inscrire sur le social network de Groupomania, il vous faut renseigner :
